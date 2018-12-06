@@ -5,7 +5,8 @@ class diplomacyConan(ConanFile):
     version = "0.1.0"
     author = "Tim Quelch"
     requires = ("fmt/5.2.1@bincrafters/stable",
-                "catch2/2.4.1@bincrafters/stable")
+                "catch2/2.4.1@bincrafters/stable",
+                "jsonformoderncpp/3.3.0@vthiery/stable")
     generators = ("cmake_paths")
 
     def _cmake_configure(self):
