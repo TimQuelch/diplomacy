@@ -4,6 +4,8 @@
 #include <string_view>
 #include <type_traits>
 
+#include <fmt/format.h>
+
 namespace diplomacy {
     class Region {
     public:
@@ -33,3 +35,18 @@ namespace diplomacy {
     static_assert(std::is_nothrow_destructible_v<Region>);
     static_assert(std::is_nothrow_swappable_v<Region>);
 } // namespace diplomacy
+
+namespace fmt {
+    template <>
+    struct formatter<diplomacy::Region> {
+        template <typename ParseContext>
+        constexpr auto parse(ParseContext& context) {
+            return context.begin();
+        }
+
+        template <typename FormatContext>
+        auto format(diplomacy::Region const& r, FormatContext& context) {
+            return format_to(context.begin(), "{} ({})", r.name(), r.abbr());
+        }
+    };
+} // namespace fmt
