@@ -7,7 +7,7 @@ find_package(fmt REQUIRED)
 find_package(nlohmann_json REQUIRED)
 
 # Build
-add_library(diplomacy src/diplomacy.cpp src/map.cpp)
+add_library(diplomacy src/region.cpp src/map.cpp)
 add_library(diplomacy::diplomacy ALIAS diplomacy)
 target_include_directories(
     diplomacy
