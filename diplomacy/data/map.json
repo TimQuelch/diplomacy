@@ -38,7 +38,7 @@
         "Spa": {
             "type": "land",
             "name": "Spain",
-            "borders": ["Por", "Mar", "Gas"]
+            "borders": ["Por", "Mar", "Gas", "Mao", "Wes", "Lyo"]
         },
         "Naf": {
             "type": "land",
@@ -98,7 +98,7 @@
         "Bul": {
             "type": "land",
             "name": "Bulgaria",
-            "borders": ["Gre", "Ser", "Rum", "Con"]
+            "borders": ["Gre", "Ser", "Rum", "Con", "Bla", "Aeg"]
         },
         "Rum": {
             "type": "land",
@@ -143,7 +143,7 @@
         "War": {
             "type": "land",
             "name": "Warsaw",
-            "borders": ["Ukr", "Liv", "Mos", "Pru", "Sil", "Gal"]
+            "borders": ["Ukr", "Lvn", "Mos", "Pru", "Sil", "Gal"]
         },
         "Lvn": {
             "type": "land",
@@ -153,12 +153,12 @@
         "Mos": {
             "type": "land",
             "name": "Moscow",
-            "borders": ["Sev", "Ukr", "War", "Liv", "Stp"]
+            "borders": ["Sev", "Ukr", "War", "Lvn", "Stp"]
         },
         "Stp": {
             "type": "land",
             "name": "St Petersburg",
-            "borders": ["Liv", "Mos", "Fin", "Nor"]
+            "borders": ["Lvn", "Mos", "Fin", "Nor", "Bar", "Bot"]
         },
         "Fin": {
             "type": "land",
@@ -173,7 +173,7 @@
         "Nor": {
             "type": "land",
             "name": "Norway",
-            "borders": ["Stp", "Fin", "Swe", "Bar", "Nor", "Nth", "Ska"]
+            "borders": ["Stp", "Fin", "Swe", "Bar", "Nwg", "Nth", "Ska"]
         },
         "Den": {
             "type": "land",
@@ -188,12 +188,12 @@
         "Ber": {
             "type": "land",
             "name": "Berlin",
-            "borders": ["Kie", "Pru", "Sie", "Mun", "Bal"]
+            "borders": ["Kie", "Pru", "Sil", "Mun", "Bal"]
         },
         "Pru": {
             "type": "land",
             "name": "Prussia",
-            "borders": ["War", "Liv", "Ber", "Sil", "Bal"]
+            "borders": ["War", "Lvn", "Ber", "Sil", "Bal"]
         },
         "Sil": {
             "type": "land",
@@ -278,7 +278,7 @@
         "Gal": {
             "type": "land",
             "name": "Galicia",
-            "borders": ["Rum", "Wkr", "War", "Sil", "Boh", "Vie", "Bud"]
+            "borders": ["Rum", "Ukr", "War", "Sil", "Boh", "Vie", "Bud"]
         },
         "Bar": {
             "type": "sea",
@@ -298,7 +298,7 @@
         "Ska": {
             "type": "sea",
             "name": "Skagerrak",
-            "borders": ["Swe", "Nor", "Den", "Nor"]
+            "borders": ["Swe", "Nor", "Den", "Nth"]
         },
         "Hel": {
             "type": "sea",
@@ -308,17 +308,17 @@
         "Bal": {
             "type": "sea",
             "name": "Baltic Sea",
-            "borders": ["Liv", "Swe", "Den", "Kie", "Ber", "Pru", "Bot"]
+            "borders": ["Lvn", "Swe", "Den", "Kie", "Ber", "Pru", "Bot"]
         },
         "Bot": {
             "type": "sea",
             "name": "Gulf of Bothnia",
-            "borders": ["Liv", "Fin", "Swe", "Bal", "Stp"]
+            "borders": ["Lvn", "Fin", "Swe", "Bal", "Stp"]
         },
         "Nao": {
             "type": "sea",
             "name": "North Atlantic Ocean",
-            "borders": ["Cly", "Liv", "Nor", "Iri", "Mao"]
+            "borders": ["Cly", "Liv", "Nwg", "Iri", "Mao"]
         },
         "Iri": {
             "type": "sea",
