@@ -17,9 +17,9 @@ namespace diplomacy {
         std::unordered_multimap<Region*, Region*> borders_ = {};
     };
 
-    static_assert(std::is_nothrow_default_constructible_v<Region>);
-    static_assert(std::is_copy_constructible_v<Region>);
-    static_assert(std::is_nothrow_move_constructible_v<Region>);
-    static_assert(std::is_nothrow_destructible_v<Region>);
-    static_assert(std::is_nothrow_swappable_v<Region>);
+    static_assert(std::is_nothrow_default_constructible_v<Map>);
+    static_assert(std::is_copy_constructible_v<Map>);
+    static_assert(std::is_nothrow_move_constructible_v<Map>);
+    static_assert(std::is_nothrow_destructible_v<Map>);
+    static_assert(std::is_nothrow_swappable_v<Map>);
 } // namespace diplomacy
