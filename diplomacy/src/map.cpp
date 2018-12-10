@@ -149,21 +149,25 @@ namespace diplomacy {
         }
 
         assert(regions_.empty());
+
+        // Create regions
         for (auto i = json.begin(); i != json.end(); ++i) {
-            regions_.emplace_back(
-                i.value()["name"], i.key(), false, jsonToRegionType(i.value()["type"]));
+            regions_.push_back(std::make_unique<Region>(
+                i.value()["name"], i.key(), false, jsonToRegionType(i.value()["type"])));
         }
+
+        // Assign borders
         for (auto i = json.begin(); i != json.end(); ++i) {
             auto const current =
                 std::find_if(regions_.cbegin(), regions_.cend(), [&i](auto const& region) {
-                    return region.abbr() == i.key();
+                    return region->abbr() == i.key();
                 });
             for (std::string border : i.value()["borders"]) {
                 auto const other =
                     std::find_if(regions_.cbegin(), regions_.cend(), [&border](auto const& region) {
-                        return region.abbr() == border;
+                        return region->abbr() == border;
                     });
-                borders_.insert({*current, *other});
+                borders_.insert({current->get(), other->get()});
             }
         }
     }

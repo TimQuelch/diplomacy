@@ -13,14 +13,8 @@ namespace diplomacy {
         Map(std::filesystem::path const& json);
 
     private:
-        struct RegionHasher {
-            [[nodiscard]] std::size_t operator()(Region const& r) const noexcept {
-                return std::hash<std::string>{}(r.abbr());
-            }
-        };
-
-        std::vector<Region> regions_ = {};
-        std::unordered_multimap<Region, Region, RegionHasher> borders_ = {};
+        std::vector<std::unique_ptr<Region>> regions_ = {};
+        std::unordered_multimap<Region*, Region*> borders_ = {};
     };
 
     static_assert(std::is_nothrow_default_constructible_v<Region>);
