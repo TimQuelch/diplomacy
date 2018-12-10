@@ -20,6 +20,9 @@ namespace diplomacy {
         [[nodiscard]] auto isSc() const noexcept { return isSc_; }
         [[nodiscard]] auto type() const noexcept { return type_; }
 
+        void setType(Type type) noexcept { type_ = type; };
+        void setSc(bool isSc) noexcept { isSc_ = isSc; };
+
     private:
         std::string name_ = {};
         std::string abbr_ = {};

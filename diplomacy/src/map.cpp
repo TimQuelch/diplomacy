@@ -170,5 +170,17 @@ namespace diplomacy {
                 borders_.insert({current->get(), other->get()});
             }
         }
+
+        // Transform regions to coasts
+        for (auto const& region : regions_) {
+            if (region->type() == Region::Type::sea) {
+                auto const [b, e] = borders_.equal_range(region.get());
+                std::for_each(b, e, [](auto const& r) {
+                    if (r.second->type() == Region::Type::land) {
+                        r.second->setType(Region::Type::coast);
+                    }
+                });
+            }
+        }
     }
 } // namespace diplomacy
