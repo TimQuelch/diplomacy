@@ -3,6 +3,7 @@
 #include "region.h"
 
 #include <stdexcept>
+#include <type_traits>
 
 #include <fmt/format.h>
 

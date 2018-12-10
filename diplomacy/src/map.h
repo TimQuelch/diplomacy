@@ -3,6 +3,7 @@
 #include "region.h"
 
 #include <filesystem>
+#include <memory>
 #include <unordered_map>
 #include <vector>
 
