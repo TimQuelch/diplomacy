@@ -30,8 +30,9 @@ namespace diplomacy {
         Type type_ = Type::land;
     };
 
-    static_assert(std::is_nothrow_default_constructible_v<Region>);
     static_assert(std::is_copy_constructible_v<Region>);
+
+    static_assert(std::is_nothrow_default_constructible_v<Region>);
     static_assert(std::is_nothrow_move_constructible_v<Region>);
     static_assert(std::is_nothrow_destructible_v<Region>);
     static_assert(std::is_nothrow_swappable_v<Region>);
