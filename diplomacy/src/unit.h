@@ -13,19 +13,21 @@ namespace diplomacy {
         enum class Type { army, fleet };
 
         Unit() = delete;
-        constexpr Unit(Type type, Region* region) noexcept : type_{type}, region_{region} {}
+        constexpr Unit(Type type, Player* player, Region* region) noexcept
+            : type_{type}, player_{player}, region_{region} {}
 
         [[nodiscard]] constexpr auto type() const noexcept { return type_; }
-        [[nodiscard]] auto region() const {
-            if (!region_) {
-                throw std::runtime_error{"Dereferencing Region pointer which is null"};
-            }
-            return *region_;
-        }
+
+        [[nodiscard]] constexpr auto const& player() const noexcept { return *player_; }
+        [[nodiscard]] constexpr auto& player() noexcept { return *player_; }
+
+        [[nodiscard]] constexpr auto const& region() const { return *region_; }
+        [[nodiscard]] constexpr auto& region() noexcept { return *region_; }
 
     private:
         Type type_ = Type::army;
-        Region* region_ = nullptr;
+        Player* player_;
+        Region* region_;
     };
 
     static_assert(!std::is_default_constructible_v<Unit>);
