@@ -36,9 +36,6 @@ namespace diplomacy {
     static_assert(std::is_nothrow_move_constructible_v<Region>);
     static_assert(std::is_nothrow_destructible_v<Region>);
     static_assert(std::is_nothrow_swappable_v<Region>);
-
-    static_assert(std::is_trivially_move_constructible_v<Region>);
-    static_assert(std::is_trivially_swappable_v<Region>);
 } // namespace diplomacy
 
 namespace fmt {
