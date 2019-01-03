@@ -1,11 +1,12 @@
 #pragma once
 
-#include "unit.h"
-
 #include <string>
+#include <string_view>
 #include <vector>
 
 namespace diplomacy {
+    class Unit;
+
     class Player {
     public:
         Player() = delete;

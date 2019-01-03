@@ -1,5 +1,7 @@
 #include "map.h"
 
+#include "region.h"
+
 #include <cassert>
 #include <fstream>
 #include <iostream>

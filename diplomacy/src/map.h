@@ -1,13 +1,13 @@
 #pragma once
 
-#include "region.h"
-
 #include <filesystem>
 #include <memory>
 #include <unordered_map>
 #include <vector>
 
 namespace diplomacy {
+    class Region;
+
     class Map {
     public:
         Map() = delete;

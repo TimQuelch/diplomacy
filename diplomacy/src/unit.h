@@ -1,13 +1,14 @@
 #pragma once
 
-#include "region.h"
-
 #include <stdexcept>
 #include <type_traits>
 
 #include <fmt/format.h>
 
 namespace diplomacy {
+    class Player;
+    class Region;
+
     class Unit {
     public:
         enum class Type { army, fleet };
