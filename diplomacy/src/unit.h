@@ -12,7 +12,7 @@ namespace diplomacy {
     public:
         enum class Type { army, fleet };
 
-        constexpr Unit() noexcept = default;
+        Unit() = delete;
         constexpr Unit(Type type, Region* region) noexcept : type_{type}, region_{region} {}
 
         [[nodiscard]] constexpr auto type() const noexcept { return type_; }
@@ -28,9 +28,9 @@ namespace diplomacy {
         Region* region_ = nullptr;
     };
 
+    static_assert(!std::is_default_constructible_v<Unit>);
     static_assert(std::is_copy_constructible_v<Unit>);
 
-    static_assert(std::is_nothrow_default_constructible_v<Unit>);
     static_assert(std::is_nothrow_move_constructible_v<Unit>);
     static_assert(std::is_nothrow_destructible_v<Unit>);
     static_assert(std::is_nothrow_swappable_v<Unit>);

@@ -10,7 +10,7 @@
 namespace diplomacy {
     class Map {
     public:
-        Map() = default;
+        Map() = delete;
         Map(std::filesystem::path const& json);
 
     private:
@@ -18,9 +18,9 @@ namespace diplomacy {
         std::unordered_multimap<Region*, Region*> borders_ = {};
     };
 
+    static_assert(!std::is_default_constructible_v<Map>);
     static_assert(std::is_copy_constructible_v<Map>);
 
-    static_assert(std::is_nothrow_default_constructible_v<Map>);
     static_assert(std::is_nothrow_move_constructible_v<Map>);
     static_assert(std::is_nothrow_destructible_v<Map>);
     static_assert(std::is_nothrow_swappable_v<Map>);

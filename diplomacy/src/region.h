@@ -11,7 +11,7 @@ namespace diplomacy {
     public:
         enum class Type { land, coast, sea };
 
-        Region() noexcept = default;
+        Region() = delete;
         Region(std::string_view name, std::string_view abbr, bool isSc, Type type) noexcept
             : name_{name}, abbr_{abbr}, isSc_{isSc}, type_{type} {}
 
@@ -30,12 +30,15 @@ namespace diplomacy {
         Type type_ = Type::land;
     };
 
+    static_assert(!std::is_default_constructible_v<Region>);
     static_assert(std::is_copy_constructible_v<Region>);
 
-    static_assert(std::is_nothrow_default_constructible_v<Region>);
     static_assert(std::is_nothrow_move_constructible_v<Region>);
     static_assert(std::is_nothrow_destructible_v<Region>);
     static_assert(std::is_nothrow_swappable_v<Region>);
+
+    static_assert(std::is_trivially_move_constructible_v<Region>);
+    static_assert(std::is_trivially_swappable_v<Region>);
 } // namespace diplomacy
 
 namespace fmt {
