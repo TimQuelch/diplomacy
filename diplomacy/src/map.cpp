@@ -1,17 +1,15 @@
 #include "map.h"
 
 #include "region.h"
+#include "utils.h"
 
 #include <cassert>
-#include <fstream>
 #include <iostream>
 #include <stdexcept>
 
 #include <fmt/format.h>
 #include <fmt/ranges.h>
 #include <nlohmann/json.hpp>
-
-using json = nlohmann::json;
 
 namespace diplomacy {
     namespace {
@@ -139,12 +137,7 @@ namespace diplomacy {
     } // namespace
 
     Map::Map(std::filesystem::path const& mapJson) {
-        auto const json = [&mapJson]() {
-            auto stream = std::ifstream{mapJson};
-            auto json = nlohmann::json{};
-            stream >> json;
-            return json["regions"];
-        }();
+        auto const json = utils::loadJson(mapJson)["regions"];
 
         if (auto ret = verifyJsonStructure(json)) {
             throw std::runtime_error{*ret};
