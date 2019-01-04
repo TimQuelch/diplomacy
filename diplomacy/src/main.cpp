@@ -1,7 +1,7 @@
+#include "game.h"
+#include "map.h"
+#include "player.h"
 #include "region.h"
 #include "unit.h"
-#include "map.h"
 
-int main() {
-    diplomacy::Map("data/map.json");
-}
+int main() { diplomacy::Map("data/map.json"); }
