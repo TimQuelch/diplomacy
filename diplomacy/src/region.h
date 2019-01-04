@@ -31,9 +31,11 @@ namespace diplomacy {
     };
 
     static_assert(!std::is_default_constructible_v<Region>);
-    static_assert(std::is_copy_constructible_v<Region>);
 
+    static_assert(std::is_copy_constructible_v<Region>);
+    static_assert(std::is_copy_assignable_v<Region>);
     static_assert(std::is_nothrow_move_constructible_v<Region>);
+    static_assert(std::is_nothrow_move_assignable_v<Region>);
     static_assert(std::is_nothrow_destructible_v<Region>);
     static_assert(std::is_nothrow_swappable_v<Region>);
 } // namespace diplomacy

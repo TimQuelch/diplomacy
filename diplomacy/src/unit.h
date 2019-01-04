@@ -32,13 +32,17 @@ namespace diplomacy {
     };
 
     static_assert(!std::is_default_constructible_v<Unit>);
-    static_assert(std::is_copy_constructible_v<Unit>);
-
-    static_assert(std::is_nothrow_move_constructible_v<Unit>);
-    static_assert(std::is_nothrow_destructible_v<Unit>);
-    static_assert(std::is_nothrow_swappable_v<Unit>);
 
     static_assert(std::is_trivially_copy_constructible_v<Unit>);
+    static_assert(std::is_trivially_copy_assignable_v<Unit>);
+
+    static_assert(std::is_nothrow_move_constructible_v<Unit>);
     static_assert(std::is_trivially_move_constructible_v<Unit>);
+    static_assert(std::is_nothrow_move_assignable_v<Unit>);
+    static_assert(std::is_trivially_move_assignable_v<Unit>);
+
+    static_assert(std::is_nothrow_swappable_v<Unit>);
+
+    static_assert(std::is_nothrow_destructible_v<Unit>);
     static_assert(std::is_trivially_destructible_v<Unit>);
 } // namespace diplomacy
