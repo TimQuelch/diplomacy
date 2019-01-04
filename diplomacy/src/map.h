@@ -11,6 +11,12 @@ namespace diplomacy {
     class Map {
     public:
         Map() = delete;
+        Map(Map const&) = delete;
+        Map& operator=(Map const&) = delete;
+
+        Map(Map&&) = default;
+        Map& operator=(Map&&) = default;
+
         Map(std::filesystem::path const& json);
 
     private:
@@ -19,9 +25,11 @@ namespace diplomacy {
     };
 
     static_assert(!std::is_default_constructible_v<Map>);
-    static_assert(std::is_copy_constructible_v<Map>);
+    static_assert(!std::is_copy_constructible_v<Map>);
+    static_assert(!std::is_copy_assignable_v<Map>);
 
     static_assert(std::is_nothrow_move_constructible_v<Map>);
+    static_assert(std::is_nothrow_move_assignable_v<Map>);
     static_assert(std::is_nothrow_destructible_v<Map>);
     static_assert(std::is_nothrow_swappable_v<Map>);
 } // namespace diplomacy
