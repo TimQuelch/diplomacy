@@ -4,4 +4,4 @@
 #include "region.h"
 #include "unit.h"
 
-int main() { diplomacy::Map("data/map.json"); }
+int main() { diplomacy::Game("data/map.json"); }

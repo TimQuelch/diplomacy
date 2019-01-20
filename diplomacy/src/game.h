@@ -15,7 +15,7 @@ namespace diplomacy {
         Game(Game&&) = default;
         Game& operator=(Game&&) = default;
 
-        Game(std::filesystem::path const& mapJson);
+        Game(std::filesystem::path const& configPath);
 
     private:
         std::unique_ptr<Map> map_;
