@@ -17,4 +17,4 @@ namespace diplomacy::utils {
                 fmt::format("Requested file does not exist: {}", jsonPath.string())};
         }
     }
-} // namespace diplomacy
+} // namespace diplomacy::utils
