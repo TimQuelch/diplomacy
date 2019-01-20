@@ -1,9 +1,10 @@
 #pragma once
 
-#include <filesystem>
 #include <memory>
 #include <unordered_map>
 #include <vector>
+
+#include <nlohmann/json.hpp>
 
 namespace diplomacy {
     class Region;
@@ -17,7 +18,7 @@ namespace diplomacy {
         Map(Map&&) = default;
         Map& operator=(Map&&) = default;
 
-        Map(std::filesystem::path const& json);
+        Map(nlohmann::json const& config);
 
     private:
         std::vector<std::unique_ptr<Region>> regions_ = {};

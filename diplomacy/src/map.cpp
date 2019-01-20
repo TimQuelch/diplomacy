@@ -9,7 +9,6 @@
 
 #include <fmt/format.h>
 #include <fmt/ranges.h>
-#include <nlohmann/json.hpp>
 
 namespace diplomacy {
     namespace {
@@ -136,23 +135,23 @@ namespace diplomacy {
         }
     } // namespace
 
-    Map::Map(std::filesystem::path const& mapJson) {
-        auto const json = utils::loadJson(mapJson)["regions"];
+    Map::Map(nlohmann::json const& config) {
+        auto const& regionsJson = config["regions"];
 
-        if (auto ret = verifyJsonStructure(json)) {
+        if (auto ret = verifyJsonStructure(regionsJson)) {
             throw std::runtime_error{*ret};
         }
 
         assert(regions_.empty());
 
         // Create regions
-        for (auto i = json.begin(); i != json.end(); ++i) {
+        for (auto i = regionsJson.begin(); i != regionsJson.end(); ++i) {
             regions_.push_back(std::make_unique<Region>(
                 i.value()["name"], i.key(), false, jsonToRegionType(i.value()["type"])));
         }
 
         // Assign borders
-        for (auto i = json.begin(); i != json.end(); ++i) {
+        for (auto i = regionsJson.begin(); i != regionsJson.end(); ++i) {
             auto const current =
                 std::find_if(regions_.cbegin(), regions_.cend(), [&i](auto const& region) {
                     return region->abbr() == i.key();

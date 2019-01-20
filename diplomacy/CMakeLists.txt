@@ -15,7 +15,7 @@ target_include_directories(
     $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include/>
     $<INSTALL_INTERFACE:include/>)
 target_compile_features(diplomacy PUBLIC cxx_std_17)
-target_link_libraries(diplomacy PUBLIC stdc++fs PRIVATE fmt::fmt nlohmann_json::nlohmann_json)
+target_link_libraries(diplomacy PUBLIC stdc++fs nlohmann_json::nlohmann_json PRIVATE fmt::fmt)
 
 add_executable(diplomacy-app src/main.cpp)
 add_executable(diplomacy::diplomacy-app ALIAS diplomacy-app)
