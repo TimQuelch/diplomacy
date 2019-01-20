@@ -1,9 +1,19 @@
 cmake_minimum_required(VERSION 3.10)
 project(diplomacy)
 
+message("Build type: ${CMAKE_BUILD_TYPE}")
+
 include(${CMAKE_BINARY_DIR}/conan_paths.cmake OPTIONAL)
 
 include(${CMAKE_CURRENT_LIST_DIR}/warnings.cmake)
+set(optimisation_flags_release -O3 -march=native)
+set(optimisation_flags_debug -O0)
+set(debug_flags -g)
+add_compile_options(
+    ${warnings}
+    "$<$<CONFIG:Debug>:${optimisation_flags_debug}>"
+    "$<$<CONFIG:Debug>:${debug_flags}>"
+    "$<$<CONFIG:Release>:${optimisation_flags_release}>")
 add_compile_options(${warnings})
 
 option(RUN_CLANG_TIDY "Run clang tidy on C++ code" FALSE)
