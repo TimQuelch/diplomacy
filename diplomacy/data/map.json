@@ -375,5 +375,8 @@
             "name": "Black Sea",
             "borders": ["Rum", "Con", "Ank", "Arm", "Sev", "Bul"]
         }
-    }
+    },
+    "SCs": ["Edi", "Liv", "Lon", "Por", "Spa", "Tun", "Nap", "Rom", "Ven", "Gre", "Ser", "Bul",
+            "Rum", "Con", "Smy", "Ank", "Sev", "War", "Mos", "Stp", "Swe", "Nor", "Den", "Kie",
+            "Ber", "Mun", "Hol", "Bel", "Bre", "Par", "Mar", "Vie", "Tri", "Bud"]
 }

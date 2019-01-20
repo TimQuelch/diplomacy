@@ -137,6 +137,7 @@ namespace diplomacy {
 
     Map::Map(nlohmann::json const& config) {
         auto const& regionsJson = config["regions"];
+        auto const& scsJson = config["SCs"];
 
         if (auto ret = verifyJsonStructure(regionsJson)) {
             throw std::runtime_error{*ret};
@@ -175,6 +176,18 @@ namespace diplomacy {
                     }
                 });
             }
+        }
+
+        // Transform to SCs
+        for (std::string abbr : scsJson) {
+            auto region =
+                std::find_if(regions_.begin(), regions_.end(), [&abbr](auto const& region) {
+                    return region->abbr() == abbr;
+                });
+            if (region == regions_.end()) {
+                throw std::runtime_error{fmt::format("Setting missing region, '{}', as SC", abbr)};
+            }
+            (**region).setSc(true);
         }
     }
 } // namespace diplomacy
