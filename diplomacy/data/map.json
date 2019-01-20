@@ -1,381 +1,456 @@
 {
-    "regions": {
-        "Cly": {
-            "type": "land",
+    "regions": [
+        {
+            "abbr": "Cly",
             "name": "Clyde",
+            "type": "land",
             "borders" : ["Edi", "Liv", "Nwg", "Nao"]
         },
-        "Edi": {
-            "type": "land",
+        {
+            "abbr": "Edi",
             "name": "Edinburgh",
+            "type": "land",
             "borders" : ["Cly", "Liv", "Yor", "Nwg", "Nth"]
         },
-        "Liv": {
-            "type": "land",
+        {
+            "abbr": "Liv",
             "name": "Liverpool",
+            "type": "land",
             "borders": ["Cly", "Edi", "Yor", "Wal", "Nao", "Iri"]
         },
-        "Yor": {
-            "type": "land",
+        {
+            "abbr": "Yor",
             "name": "Yorkshire",
+            "type": "land",
             "borders": ["Edi", "Liv", "Wal", "Lon", "Nth"]
         },
-        "Wal": {
-            "type": "land",
+        {
+            "abbr": "Wal",
             "name": "Wales",
+            "type": "land",
             "borders": ["Liv", "Yor", "Lon", "Iri", "Eng"]
         },
-        "Lon": {
-            "type": "land",
+        {
+            "abbr": "Lon",
             "name": "London",
+            "type": "land",
             "borders": ["Yor", "Wal", "Nth", "Eng"]
         },
-        "Por": {
-            "type": "land",
+        {
+            "abbr": "Por",
             "name": "Portugal",
+            "type": "land",
             "borders": ["Spa", "Mao"]
         },
-        "Spa": {
-            "type": "land",
+        {
+            "abbr": "Spa",
             "name": "Spain",
+            "type": "land",
             "borders": ["Por", "Mar", "Gas", "Mao", "Wes", "Lyo"]
         },
-        "Naf": {
-            "type": "land",
+        {
+            "abbr": "Naf",
             "name": "North Africa",
+            "type": "land",
             "borders": ["Tun", "Mao", "Wes"]
         },
-        "Tun": {
-            "type": "land",
+        {
+            "abbr": "Tun",
             "name": "Tunis",
+            "type": "land",
             "borders": ["Naf", "Wes", "Tys", "Ion"]
         },
-        "Nap": {
-            "type": "land",
+        {
+            "abbr": "Nap",
             "name": "Naples",
+            "type": "land",
             "borders": ["Rom", "Apu", "Tys", "Ion"]
         },
-        "Rom": {
-            "type": "land",
+        {
+            "abbr": "Rom",
             "name": "Rome",
+            "type": "land",
             "borders": ["Nap", "Tus", "Ven", "Apu", "Tys"]
         },
-        "Tus": {
-            "type": "land",
+        {
+            "abbr": "Tus",
             "name": "Tuscany",
+            "type": "land",
             "borders": ["Rom", "Pie", "Ven", "Lyo", "Tys"]
         },
-        "Pie": {
-            "type": "land",
+        {
+            "abbr": "Pie",
             "name": "Piedmont",
+            "type": "land",
             "borders": ["Tus", "Ven", "Mar", "Lyo", "Tyr"]
         },
-        "Ven": {
-            "type": "land",
+        {
+            "abbr": "Ven",
             "name": "Venice",
+            "type": "land",
             "borders": ["Rom", "Tus", "Pie", "Apu", "Adr", "Tyr", "Tri"]
         },
-        "Apu": {
-            "type": "land",
+        {
+            "abbr": "Apu",
             "name": "Apulia",
+            "type": "land",
             "borders": ["Nap", "Rom", "Ven", "Ion", "Adr"]
         },
-        "Gre": {
-            "type": "land",
+        {
+            "abbr": "Gre",
             "name": "Greece",
+            "type": "land",
             "borders": ["Alb", "Ser", "Bul", "Ion", "Aeg"]
         },
-        "Alb": {
-            "type": "land",
+        {
+            "abbr": "Alb",
             "name": "Albania",
+            "type": "land",
             "borders": ["Gre", "Ser", "Ion", "Adr", "Tri"]
         },
-        "Ser": {
-            "type": "land",
+        {
+            "abbr": "Ser",
             "name": "Serbia",
+            "type": "land",
             "borders": ["Gre", "Alb", "Bul", "Rum", "Tri", "Bud"]
         },
-        "Bul": {
-            "type": "land",
+        {
+            "abbr": "Bul",
             "name": "Bulgaria",
+            "type": "land",
             "borders": ["Gre", "Ser", "Rum", "Con", "Bla", "Aeg"]
         },
-        "Rum": {
-            "type": "land",
+        {
+            "abbr": "Rum",
             "name": "Rumania",
+            "type": "land",
             "borders": ["Ser", "Bul", "Sev", "Ukr", "Bla", "Bud", "Gal"]
         },
-        "Con": {
-            "type": "land",
+        {
+            "abbr": "Con",
             "name": "Constantinople",
+            "type": "land",
             "borders": ["Bul", "Smy", "Ank", "Aeg", "Bla"]
         },
-        "Smy": {
-            "type": "land",
+        {
+            "abbr": "Smy",
             "name": "Smyrna",
+            "type": "land",
             "borders": ["Con", "Ank", "Arm", "Syr", "Aeg", "Eas"]
         },
-        "Ank": {
-            "type": "land",
+        {
+            "abbr": "Ank",
             "name": "Ankara",
+            "type": "land",
             "borders": ["Con", "Smy", "Arm", "Bla"]
         },
-        "Arm": {
-            "type": "land",
+        {
+            "abbr": "Arm",
             "name": "Armenia",
+            "type": "land",
             "borders": ["Smy", "Ank", "Syr", "Sev", "Bla"]
         },
-        "Syr": {
-            "type": "land",
+        {
+            "abbr": "Syr",
             "name": "Syria",
+            "type": "land",
             "borders": ["Smy", "Arm", "Eas"]
         },
-        "Sev": {
-            "type": "land",
+        {
+            "abbr": "Sev",
             "name": "Sevastopol",
+            "type": "land",
             "borders": ["Rum", "Arm", "Ukr", "Mos", "Bla"]
         },
-        "Ukr": {
-            "type": "land",
+        {
+            "abbr": "Ukr",
             "name": "Ukraine",
+            "type": "land",
             "borders": ["Rum", "Sev", "War", "Mos", "Gal"]
         },
-        "War": {
-            "type": "land",
+        {
+            "abbr": "War",
             "name": "Warsaw",
+            "type": "land",
             "borders": ["Ukr", "Lvn", "Mos", "Pru", "Sil", "Gal"]
         },
-        "Lvn": {
-            "type": "land",
+        {
+            "abbr": "Lvn",
             "name": "Livonia",
+            "type": "land",
             "borders": ["War", "Mos", "Stp", "Pru", "Bal", "Bot"]
         },
-        "Mos": {
-            "type": "land",
+        {
+            "abbr": "Mos",
             "name": "Moscow",
+            "type": "land",
             "borders": ["Sev", "Ukr", "War", "Lvn", "Stp"]
         },
-        "Stp": {
-            "type": "land",
+        {
+            "abbr": "Stp",
             "name": "St Petersburg",
+            "type": "land",
             "borders": ["Lvn", "Mos", "Fin", "Nor", "Bar", "Bot"]
         },
-        "Fin": {
-            "type": "land",
+        {
+            "abbr": "Fin",
             "name": "Finland",
+            "type": "land",
             "borders": ["Stp", "Swe", "Nor", "Bot"]
         },
-        "Swe": {
-            "type": "land",
+        {
+            "abbr": "Swe",
             "name": "Sweden",
+            "type": "land",
             "borders": ["Fin", "Nor", "Den", "Ska", "Bal", "Bot"]
         },
-        "Nor": {
-            "type": "land",
+        {
+            "abbr": "Nor",
             "name": "Norway",
+            "type": "land",
             "borders": ["Stp", "Fin", "Swe", "Bar", "Nwg", "Nth", "Ska"]
         },
-        "Den": {
-            "type": "land",
+        {
+            "abbr": "Den",
             "name": "Denmark",
+            "type": "land",
             "borders": ["Swe", "Kie", "Nth", "Ska", "Hel", "Bal"]
         },
-        "Kie": {
-            "type": "land",
+        {
+            "abbr": "Kie",
             "name": "Kiel",
+            "type": "land",
             "borders": ["Den", "Ber", "Mun", "Ruh", "Hol", "Hel", "Bal"]
         },
-        "Ber": {
-            "type": "land",
+        {
+            "abbr": "Ber",
             "name": "Berlin",
+            "type": "land",
             "borders": ["Kie", "Pru", "Sil", "Mun", "Bal"]
         },
-        "Pru": {
-            "type": "land",
+        {
+            "abbr": "Pru",
             "name": "Prussia",
+            "type": "land",
             "borders": ["War", "Lvn", "Ber", "Sil", "Bal"]
         },
-        "Sil": {
-            "type": "land",
+        {
+            "abbr": "Sil",
             "name": "Silesia",
+            "type": "land",
             "borders": ["War", "Ber", "Pru", "Mun", "Boh", "Gal"]
         },
-        "Mun": {
-            "type": "land",
+        {
+            "abbr": "Mun",
             "name": "Munich",
+            "type": "land",
             "borders": ["Kie", "Ber", "Sil", "Ruh", "Bur", "Tyr", "Boh"]
         },
-        "Ruh": {
-            "type": "land",
+        {
+            "abbr": "Ruh",
             "name": "Ruhr",
+            "type": "land",
             "borders": ["Kie", "Mun", "Hol", "Bel", "Bur"]
         },
-        "Hol": {
-            "type": "land",
+        {
+            "abbr": "Hol",
             "name": "Holland",
+            "type": "land",
             "borders": ["Kie", "Ruh", "Bel", "Nth", "Hel"]
         },
-        "Bel": {
-            "type": "land",
+        {
+            "abbr": "Bel",
             "name": "Belgium",
+            "type": "land",
             "borders": ["Ruh", "Hol", "Pic", "Bur", "Nth", "Eng"]
         },
-        "Pic": {
-            "type": "land",
+        {
+            "abbr": "Pic",
             "name": "Picardy",
+            "type": "land",
             "borders": ["Bel", "Bre", "Par", "Bur", "Eng"]
         },
-        "Bre": {
-            "type": "land",
+        {
+            "abbr": "Bre",
             "name": "Brest",
+            "type": "land",
             "borders": ["Pic", "Par", "Gas", "Eng", "Mao"]
         },
-        "Par": {
-            "type": "land",
+        {
+            "abbr": "Par",
             "name": "Paris",
+            "type": "land",
             "borders": ["Pic", "Bre", "Bur", "Gas"]
         },
-        "Bur": {
-            "type": "land",
+        {
+            "abbr": "Bur",
             "name": "Burgundy",
+            "type": "land",
             "borders": ["Mun", "Ruh", "Bel", "Pic", "Par", "Mar", "Gas"]
         },
-        "Mar": {
-            "type": "land",
+        {
+            "abbr": "Mar",
             "name": "Marseilles",
+            "type": "land",
             "borders": ["Spa", "Pie", "Bur", "Gas", "Lyo"]
         },
-        "Gas": {
-            "type": "land",
+        {
+            "abbr": "Gas",
             "name": "Gascony",
+            "type": "land",
             "borders": ["Spa", "Bre", "Par", "Bur", "Mar", "Mao"]
         },
-        "Tyr": {
-            "type": "land",
+        {
+            "abbr": "Tyr",
             "name": "Tyrolia",
+            "type": "land",
             "borders": ["Pie", "Ven", "Mun", "Boh", "Vie", "Tri"]
         },
-        "Boh": {
-            "type": "land",
+        {
+            "abbr": "Boh",
             "name": "Bohemia",
+            "type": "land",
             "borders": ["Sil", "Mun", "Tyr", "Vie", "Gal"]
         },
-        "Vie": {
-            "type": "land",
+        {
+            "abbr": "Vie",
             "name": "Vienna",
+            "type": "land",
             "borders": ["Tyr", "Boh", "Tri", "Bud", "Gal"]
         },
-        "Tri": {
-            "type": "land",
+        {
+            "abbr": "Tri",
             "name": "Trieste",
+            "type": "land",
             "borders": ["Ven", "Alb", "Ser", "Adr", "Tyr", "Vie", "Bud"]
         },
-        "Bud": {
-            "type": "land",
+        {
+            "abbr": "Bud",
             "name": "Budapest",
+            "type": "land",
             "borders": ["Ser", "Rum", "Vie", "Tri", "Gal"]
         },
-        "Gal": {
-            "type": "land",
+        {
+            "abbr": "Gal",
             "name": "Galicia",
+            "type": "land",
             "borders": ["Rum", "Ukr", "War", "Sil", "Boh", "Vie", "Bud"]
         },
-        "Bar": {
-            "type": "sea",
+        {
+            "abbr": "Bar",
             "name": "Barents Sea",
+            "type": "sea",
             "borders": ["Nor", "Nwg", "Stp"]
         },
-        "Nwg": {
-            "type": "sea",
+        {
+            "abbr": "Nwg",
             "name": "Norwegian Sea",
+            "type": "sea",
             "borders": ["Cly", "Edi", "Nor", "Bar", "Nth", "Nao"]
         },
-        "Nth": {
-            "type": "sea",
+        {
+            "abbr": "Nth",
             "name": "North Sea",
+            "type": "sea",
             "borders": ["Edi", "Yor", "Lon", "Nor", "Den", "Hol", "Bel", "Nwg", "Ska", "Hel", "Eng"]
         },
-        "Ska": {
-            "type": "sea",
+        {
+            "abbr": "Ska",
             "name": "Skagerrak",
+            "type": "sea",
             "borders": ["Swe", "Nor", "Den", "Nth"]
         },
-        "Hel": {
-            "type": "sea",
+        {
+            "abbr": "Hel",
             "name": "Helgoland Bight",
+            "type": "sea",
             "borders": ["Den", "Kie", "Hol", "Nth"]
         },
-        "Bal": {
-            "type": "sea",
+        {
+            "abbr": "Bal",
             "name": "Baltic Sea",
+            "type": "sea",
             "borders": ["Lvn", "Swe", "Den", "Kie", "Ber", "Pru", "Bot"]
         },
-        "Bot": {
-            "type": "sea",
+        {
+            "abbr": "Bot",
             "name": "Gulf of Bothnia",
+            "type": "sea",
             "borders": ["Lvn", "Fin", "Swe", "Bal", "Stp"]
         },
-        "Nao": {
-            "type": "sea",
+        {
+            "abbr": "Nao",
             "name": "North Atlantic Ocean",
+            "type": "sea",
             "borders": ["Cly", "Liv", "Nwg", "Iri", "Mao"]
         },
-        "Iri": {
-            "type": "sea",
+        {
+            "abbr": "Iri",
             "name": "Irish Sea",
+            "type": "sea",
             "borders": ["Liv", "Wal", "Nao", "Eng", "Mao"]
         },
-        "Eng": {
-            "type": "sea",
+        {
+            "abbr": "Eng",
             "name": "English Channel",
+            "type": "sea",
             "borders": ["Wal", "Lon", "Bel", "Pic", "Bre", "Nth", "Iri", "Mao"]
         },
-        "Mao": {
-            "type": "sea",
+        {
+            "abbr": "Mao",
             "name": "Mid-Atlantic Ocean",
+            "type": "sea",
             "borders": ["Por", "Naf", "Bre", "Gas", "Nao", "Iri", "Eng", "Wes", "Spa"]
         },
-        "Wes": {
-            "type": "sea",
+        {
+            "abbr": "Wes",
             "name": "Western Mediterranean",
+            "type": "sea",
             "borders": ["Naf", "Tun", "Mao", "Lyo", "Tys", "Spa"]
         },
-        "Lyo": {
-            "type": "sea",
+        {
+            "abbr": "Lyo",
             "name": "Gulf of Lyon",
+            "type": "sea",
             "borders": ["Tus", "Pie", "Mar", "Wes", "Tys", "Spa"]
         },
-        "Tys": {
-            "type": "sea",
+        {
+            "abbr": "Tys",
             "name": "Tyrrhenian Sea",
+            "type": "sea",
             "borders": ["Tun", "Nap", "Rom", "Tus", "Wes", "Lyo", "Ion"]
         },
-        "Ion": {
-            "type": "sea",
+        {
+            "abbr": "Ion",
             "name": "Ionian Sea",
+            "type": "sea",
             "borders": ["Tun", "Nap", "Apu", "Gre", "Alb", "Tys", "Adr", "Aeg", "Eas"]
         },
-        "Adr": {
-            "type": "sea",
+        {
+            "abbr": "Adr",
             "name": "Adriatic Sea",
+            "type": "sea",
             "borders": ["Ven", "Apu", "Alb", "Ion", "Tri"]
         },
-        "Aeg": {
-            "type": "sea",
+        {
+            "abbr": "Aeg",
             "name": "Aegean Sea",
+            "type": "sea",
             "borders": ["Gre", "Con", "Smy", "Ion", "Eas", "Bul"]
         },
-        "Eas": {
-            "type": "sea",
+        {
+            "abbr": "Eas",
             "name": "Eastern Mediterranean",
+            "type": "sea",
             "borders": ["Smy", "Syr", "Ion", "Aeg"]
         },
-        "Bla": {
-            "type": "sea",
+        {
+            "abbr": "Bla",
             "name": "Black Sea",
+            "type": "sea",
             "borders": ["Rum", "Con", "Ank", "Arm", "Sev", "Bul"]
         }
-    },
+    ],
     "SCs": ["Edi", "Liv", "Lon", "Por", "Spa", "Tun", "Nap", "Rom", "Ven", "Gre", "Ser", "Bul",
             "Rum", "Con", "Smy", "Ank", "Sev", "War", "Mos", "Stp", "Swe", "Nor", "Den", "Kie",
             "Ber", "Mun", "Hol", "Bel", "Bre", "Par", "Mar", "Vie", "Tri", "Bud"]

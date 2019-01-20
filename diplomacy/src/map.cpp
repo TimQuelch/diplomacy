@@ -12,17 +12,21 @@
 
 namespace diplomacy {
     namespace {
-        constexpr auto requiredMembers = std::array{"name", "type", "borders"};
+        constexpr auto requiredMembers = std::array{"abbr", "name", "type", "borders"};
 
         [[nodiscard]] auto findDuplicateAbbrs(nlohmann::json const& json) noexcept {
             auto abbrs = std::vector<std::string>{};
             abbrs.reserve(json.size());
-            for (auto i = json.begin(); i != json.end(); ++i) {
-                auto a = std::string{i.key()};
-                std::transform(
-                    a.begin(), a.end(), a.begin(), [](unsigned char c) { return std::tolower(c); });
-                abbrs.push_back(a);
-            }
+
+            std::transform(
+                json.cbegin(), json.cend(), std::back_inserter(abbrs), [](auto const& region) {
+                    auto a = std::string{region["abbr"]};
+                    std::transform(a.begin(), a.end(), a.begin(), [](unsigned char c) {
+                        return std::tolower(c);
+                    });
+                    return a;
+                });
+
             std::sort(abbrs.begin(), abbrs.end());
             auto uniqueAbbrs = std::vector<std::string>{};
             std::unique_copy(abbrs.begin(), abbrs.end(), std::back_inserter(uniqueAbbrs));
@@ -37,14 +41,14 @@ namespace diplomacy {
 
         [[nodiscard]] auto findMissingFields(nlohmann::json const& json) noexcept {
             auto missing = std::vector<std::pair<std::string, std::vector<std::string>>>{};
-            for (auto i = json.begin(); i != json.end(); ++i) {
+            for (auto const& region : json) {
                 auto membersMissing = std::vector<std::string>{};
                 std::copy_if(requiredMembers.begin(),
                              requiredMembers.end(),
                              std::back_inserter(membersMissing),
-                             [i](auto const& mem) { return i.value().count(mem) == 0; });
+                             [&region](auto const& mem) { return region.count(mem) == 0; });
                 if (!membersMissing.empty()) {
-                    missing.push_back({i.key(), membersMissing});
+                    missing.push_back({region["abbr"], membersMissing});
                 }
             }
             return missing;
@@ -52,15 +56,17 @@ namespace diplomacy {
 
         [[nodiscard]] auto findMissingBorders(nlohmann::json const& json) noexcept {
             auto missingBorders = std::vector<std::pair<std::string, std::vector<std::string>>>{};
-            for (auto i = json.begin(); i != json.end(); ++i) {
+            for (auto const& region : json) {
                 auto regionMissingBorders = std::vector<std::string>{};
-                for (std::string bordering : i.value()["borders"]) {
-                    if (json.count(bordering) == 0) {
+                for (std::string bordering : region["borders"]) {
+                    if (std::find_if(json.cbegin(), json.cend(), [&bordering](auto const& other) {
+                            return other["abbr"] == bordering;
+                        }) == json.cend()) {
                         regionMissingBorders.push_back(bordering);
                     }
                 }
                 if (!regionMissingBorders.empty()) {
-                    missingBorders.push_back({i.key(), regionMissingBorders});
+                    missingBorders.push_back({region["abbr"], regionMissingBorders});
                 }
             }
             return missingBorders;
@@ -68,18 +74,18 @@ namespace diplomacy {
 
         [[nodiscard]] auto findNonReciprocalBorders(nlohmann::json const& json) noexcept {
             auto nonReciprocated = std::vector<std::pair<std::string, std::vector<std::string>>>{};
-            for (auto i = json.begin(); i != json.end(); ++i) {
+            for (auto const& region : json) {
                 auto regionNonReciprocated = std::vector<std::string>{};
-                for (std::string bordering : i.value()["borders"]) {
+                for (std::string bordering : region["borders"]) {
                     if (json.count(bordering) > 0) {
                         auto const& other = json[bordering]["borders"];
-                        if (std::find(other.begin(), other.end(), i.key()) == other.end()) {
+                        if (std::find(other.begin(), other.end(), region["abbr"]) == other.end()) {
                             regionNonReciprocated.push_back(bordering);
                         }
                     }
                 }
                 if (!regionNonReciprocated.empty()) {
-                    nonReciprocated.push_back({i.key(), regionNonReciprocated});
+                    nonReciprocated.push_back({region["abbr"], regionNonReciprocated});
                 }
             }
             return nonReciprocated;
@@ -146,18 +152,23 @@ namespace diplomacy {
         assert(regions_.empty());
 
         // Create regions
-        for (auto i = regionsJson.begin(); i != regionsJson.end(); ++i) {
-            regions_.push_back(std::make_unique<Region>(
-                i.value()["name"], i.key(), false, jsonToRegionType(i.value()["type"])));
-        }
+        std::transform(regionsJson.begin(),
+                       regionsJson.end(),
+                       std::back_inserter(regions_),
+                       [](auto const& region) {
+                           return std::make_unique<Region>(region["name"],
+                                                           region["abbr"],
+                                                           false,
+                                                           jsonToRegionType(region["type"]));
+                       });
 
         // Assign borders
-        for (auto i = regionsJson.begin(); i != regionsJson.end(); ++i) {
+        for (auto const& regionJson : regionsJson) {
             auto const current =
-                std::find_if(regions_.cbegin(), regions_.cend(), [&i](auto const& region) {
-                    return region->abbr() == i.key();
+                std::find_if(regions_.cbegin(), regions_.cend(), [&regionJson](auto const& region) {
+                    return region->abbr() == regionJson["abbr"];
                 });
-            for (std::string border : i.value()["borders"]) {
+            for (std::string border : regionJson["borders"]) {
                 auto const other =
                     std::find_if(regions_.cbegin(), regions_.cend(), [&border](auto const& region) {
                         return region->abbr() == border;
@@ -180,8 +191,8 @@ namespace diplomacy {
 
         // Transform to SCs
         for (std::string abbr : scsJson) {
-            auto region =
-                std::find_if(regions_.begin(), regions_.end(), [&abbr](auto const& region) {
+            auto const region =
+                std::find_if(regions_.cbegin(), regions_.cend(), [&abbr](auto const& region) {
                     return region->abbr() == abbr;
                 });
             if (region == regions_.end()) {
