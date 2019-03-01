@@ -1,11 +1,11 @@
 cmake_minimum_required(VERSION 3.10)
-project(diplomacy)
+project(diplomacy VERSION 0.1.0)
 
 message("Build type: ${CMAKE_BUILD_TYPE}")
 
 include(${CMAKE_BINARY_DIR}/conan_paths.cmake OPTIONAL)
 
-include(${CMAKE_CURRENT_LIST_DIR}/warnings.cmake)
+include(${CMAKE_CURRENT_LIST_DIR}/cmake/warnings.cmake)
 set(optimisation_flags_release -O3 -march=native)
 set(optimisation_flags_debug -O0)
 set(debug_flags -g)
@@ -28,7 +28,7 @@ else()
         "-enable-check-profile")
 endif()
 
-add_subdirectory(diplomacy)
+add_subdirectory(src)
 
 #enable_testing()
 #add_subdirectory(test)

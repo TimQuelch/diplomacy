@@ -1,5 +1,4 @@
 cmake_minimum_required(VERSION 3.10)
-project(diplomacy VERSION 0.1.0)
 
 include(${CMAKE_BINARY_DIR}/conan_paths.cmake OPTIONAL)
 
@@ -7,21 +6,21 @@ find_package(fmt REQUIRED)
 find_package(nlohmann_json REQUIRED)
 
 # Build
-add_library(diplomacy src/map.cpp src/utils.cpp src/game.cpp)
+add_library(diplomacy map.cpp utils.cpp game.cpp)
 add_library(diplomacy::diplomacy ALIAS diplomacy)
 target_include_directories(
     diplomacy
     PUBLIC
-    $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include/>
+    $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/include/>
     $<INSTALL_INTERFACE:include/>)
 target_compile_features(diplomacy PUBLIC cxx_std_17)
 target_link_libraries(diplomacy PUBLIC stdc++fs nlohmann_json::nlohmann_json PRIVATE fmt::fmt)
 
-add_executable(diplomacy-app src/main.cpp)
+add_executable(diplomacy-app main.cpp)
 add_executable(diplomacy::diplomacy-app ALIAS diplomacy-app)
 target_link_libraries(diplomacy-app PRIVATE diplomacy fmt::fmt)
 
-configure_file(${CMAKE_CURRENT_LIST_DIR}/data/map.json ${CMAKE_CURRENT_BINARY_DIR}/data/map.json COPYONLY)
+configure_file(${PROJECT_SOURCE_DIR}/data/map.json ${CMAKE_CURRENT_BINARY_DIR}/data/map.json COPYONLY)
 
 # Install
 include(GNUInstallDirs)
@@ -47,7 +46,7 @@ write_basic_package_version_file(
     COMPATIBILITY AnyNewerVersion)
 
 configure_package_config_file(
-    ${CMAKE_CURRENT_LIST_DIR}/cmake/diplomacyConfig.cmake.in
+    ${PROJECT_SOURCE_DIR}/cmake/diplomacyConfig.cmake.in
     ${CMAKE_CURRENT_BINARY_DIR}/diplomacyConfig.cmake
     INSTALL_DESTINATION ${INSTALL_CONFIGDIR})
 
