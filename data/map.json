@@ -453,5 +453,49 @@
     ],
     "SCs": ["Edi", "Liv", "Lon", "Por", "Spa", "Tun", "Nap", "Rom", "Ven", "Gre", "Ser", "Bul",
             "Rum", "Con", "Smy", "Ank", "Sev", "War", "Mos", "Stp", "Swe", "Nor", "Den", "Kie",
-            "Ber", "Mun", "Hol", "Bel", "Bre", "Par", "Mar", "Vie", "Tri", "Bud"]
+            "Ber", "Mun", "Hol", "Bel", "Bre", "Par", "Mar", "Vie", "Tri", "Bud"],
+    "players": [
+        {
+            "empire": "England",
+            "regions": ["Cly", "Edi", "Liv", "Yor", "Wal", "Lon"],
+            "armies": ["Liv"],
+            "fleets": ["Edi", "Lon"]
+        },
+        {
+            "empire": "Italy",
+            "regions": ["Nap", "Rom", "Tus", "Pie", "Ven", "Apu"],
+            "armies": ["Rom", "Ven"],
+            "fleets": ["Nap"]
+        },
+        {
+            "empire": "Turkey",
+            "regions": ["Con", "Smy", "Ank", "Arm", "Syr"],
+            "armies": ["Con", "Smy"],
+            "fleets": ["Ank"]
+        },
+        {
+            "empire": "Russia",
+            "regions": ["Sev", "Ukr", "War", "Lvn", "Mos", "Stp", "Fin"],,
+            "armies": ["War", "Mos"],
+            "fleets": ["Sev", "Stp"]
+        },
+        {
+            "empire": "Germany",
+            "regions": ["Kie", "Ber", "Pru", "Sil", "Mun", "Ruh"],
+            "armies": ["Ber", "Mun"],
+            "fleets": ["Sev", "Stp"]
+        },
+        {
+            "empire": "France",
+            "regions": ["Pic", "Bre", "Par", "Bur", "Mar", "Gas"],
+            "armies": ["Par", "Mar"],
+            "fleets": ["Bre"]
+        },
+        {
+            "empire": "Austria",
+            "regions": ["Tyr", "Boh", "Vie", "Tri", "Bud", "Gal"],
+            "armies": ["Vie", "Bud"],
+            "fleets": ["Tri"]
+        }
+    ]
 }
