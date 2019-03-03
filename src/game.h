@@ -2,10 +2,10 @@
 
 #include <filesystem>
 
-namespace diplomacy {
-    class Player;
-    class Map;
+#include "map.h"
+#include "player.h"
 
+namespace diplomacy {
     class Game {
     public:
         Game() = delete;

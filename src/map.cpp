@@ -1,6 +1,5 @@
 #include "map.h"
 
-#include "region.h"
 #include "utils.h"
 
 #include <cassert>

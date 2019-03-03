@@ -1,7 +1,5 @@
 #include "game.h"
 
-#include "map.h"
-#include "player.h"
 #include "region.h"
 #include "unit.h"
 #include "utils.h"

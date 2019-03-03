@@ -6,9 +6,9 @@
 
 #include <nlohmann/json.hpp>
 
-namespace diplomacy {
-    class Region;
+#include "region.h"
 
+namespace diplomacy {
     class Map {
     public:
         Map() = delete;
