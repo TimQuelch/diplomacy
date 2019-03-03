@@ -4,9 +4,9 @@
 #include <string_view>
 #include <vector>
 
-namespace diplomacy {
-    class Unit;
+#include "unit.h"
 
+namespace diplomacy {
     class Player {
     public:
         Player() = delete;
@@ -15,6 +15,10 @@ namespace diplomacy {
 
         [[nodiscard]] auto name() const noexcept { return name_; }
         [[nodiscard]] auto empireName() const noexcept { return empireName_; }
+
+        void addUnit(Unit::Type type, Region* region) noexcept {
+            units_.push_back(Unit{type, this, region});
+        };
 
     private:
         std::string name_ = {};
