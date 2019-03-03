@@ -20,12 +20,16 @@ namespace diplomacy {
 
         Map(nlohmann::json const& config);
 
+        [[nodiscard]] unsigned totalScs() const noexcept { return totalScs_; }
+
         [[nodiscard]] Region& findFromAbbr(std::string_view abbr);
         [[nodiscard]] Region const& findFromAbbr(std::string_view abbr) const;
 
     private:
         std::vector<std::unique_ptr<Region>> regions_ = {};
         std::unordered_multimap<Region*, Region*> borders_ = {};
+
+        unsigned totalScs_ = {};
     };
 
     static_assert(!std::is_default_constructible_v<Map>);

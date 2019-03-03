@@ -199,6 +199,9 @@ namespace diplomacy {
             }
             (**region).setSc(true);
         }
+
+        totalScs_ = std::count_if(
+            regions_.cbegin(), regions_.cend(), [](auto const& r) { return r->isSc(); });
     }
 
     Region& Map::findFromAbbr(std::string_view abbr) {
