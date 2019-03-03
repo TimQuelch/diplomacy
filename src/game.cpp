@@ -18,10 +18,10 @@ namespace diplomacy {
                        [this](auto const& player) {
                            auto p = Player{"Player name", player["empire"]};
                            for (auto region : player["armies"]) {
-                               p.addUnit(Unit::Type::army, &(map_->findWithAbbr(region)));
+                               p.addUnit(Unit::Type::army, &(map_->findFromAbbr(region)));
                            }
                            for (auto region : player["fleets"]) {
-                               p.addUnit(Unit::Type::fleet, &(map_->findWithAbbr(region)));
+                               p.addUnit(Unit::Type::fleet, &(map_->findFromAbbr(region)));
                            }
                            return std::make_unique<Player>(p);
                        });

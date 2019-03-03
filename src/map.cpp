@@ -202,13 +202,13 @@ namespace diplomacy {
         }
     }
 
-    Region& Map::findWithAbbr(std::string_view abbr) {
+    Region& Map::findFromAbbr(std::string_view abbr) {
         return **std::find_if(regions_.cbegin(), regions_.cend(), [abbr](auto const& r) {
             return abbr == r->abbr();
         });
     }
 
-    Region const& Map::findWithAbbr(std::string_view abbr) const {
+    Region const& Map::findFromAbbr(std::string_view abbr) const {
         return **std::find_if(regions_.cbegin(), regions_.cend(), [abbr](auto const& r) {
             return abbr == r->abbr();
         });
