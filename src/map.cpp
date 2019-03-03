@@ -201,4 +201,16 @@ namespace diplomacy {
             (**region).setSc(true);
         }
     }
+
+    Region& Map::findWithAbbr(std::string_view abbr) {
+        return **std::find_if(regions_.cbegin(), regions_.cend(), [abbr](auto const& r) {
+            return abbr == r->abbr();
+        });
+    }
+
+    Region const& Map::findWithAbbr(std::string_view abbr) const {
+        return **std::find_if(regions_.cbegin(), regions_.cend(), [abbr](auto const& r) {
+            return abbr == r->abbr();
+        });
+    }
 } // namespace diplomacy

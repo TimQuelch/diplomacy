@@ -20,6 +20,9 @@ namespace diplomacy {
 
         Map(nlohmann::json const& config);
 
+        [[nodiscard]] Region& findWithAbbr(std::string_view abbr);
+        [[nodiscard]] Region const& findWithAbbr(std::string_view abbr) const;
+
     private:
         std::vector<std::unique_ptr<Region>> regions_ = {};
         std::unordered_multimap<Region*, Region*> borders_ = {};
