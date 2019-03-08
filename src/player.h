@@ -4,25 +4,25 @@
 #include <string_view>
 #include <vector>
 
+#include <nlohmann/json.hpp>
+
 #include "unit.h"
 
 namespace diplomacy {
+    class Map;
+
     class Player {
     public:
         Player() = delete;
-        Player(std::string_view name, std::string_view empireName) noexcept
-            : name_{name}, empireName_{empireName} {}
+        Player(nlohmann::json const& playerConfig, Map const& map);
 
         [[nodiscard]] auto name() const noexcept { return name_; }
         [[nodiscard]] auto empireName() const noexcept { return empireName_; }
 
-        void addUnit(Unit::Type type, Region* region) noexcept {
-            units_.push_back(Unit{type, this, region});
-        };
-
     private:
         std::string name_ = {};
         std::string empireName_ = {};
+        std::vector<Region const*> regions_ = {};
         std::vector<Unit> units_ = {};
     };
 

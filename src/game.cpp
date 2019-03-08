@@ -13,15 +13,8 @@ namespace diplomacy {
         std::transform(config["players"].cbegin(),
                        config["players"].cend(),
                        std::back_inserter(players_),
-                       [this](auto const& player) {
-                           auto p = Player{"Player name", player["empire"]};
-                           for (auto region : player["armies"]) {
-                               p.addUnit(Unit::Type::army, &(map_->findFromAbbr(region)));
-                           }
-                           for (auto region : player["fleets"]) {
-                               p.addUnit(Unit::Type::fleet, &(map_->findFromAbbr(region)));
-                           }
-                           return std::make_unique<Player>(p);
+                       [this](auto const& playerConfig) {
+                           return std::make_unique<Player>(playerConfig, *map_);
                        });
     }
 } // namespace diplomacy
