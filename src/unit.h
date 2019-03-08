@@ -14,21 +14,18 @@ namespace diplomacy {
         enum class Type { army, fleet };
 
         Unit() = delete;
-        constexpr Unit(Type type, Player* player, Region* region) noexcept
+        constexpr Unit(Type type, Player const* player, Region const* region) noexcept
             : type_{type}, player_{player}, region_{region} {}
 
         [[nodiscard]] constexpr auto type() const noexcept { return type_; }
 
         [[nodiscard]] constexpr auto const& player() const noexcept { return *player_; }
-        [[nodiscard]] constexpr auto& player() noexcept { return *player_; }
-
         [[nodiscard]] constexpr auto const& region() const { return *region_; }
-        [[nodiscard]] constexpr auto& region() noexcept { return *region_; }
 
     private:
         Type type_ = Type::army;
-        Player* player_;
-        Region* region_;
+        Player const* player_;
+        Region const* region_;
     };
 
     static_assert(!std::is_default_constructible_v<Unit>);
